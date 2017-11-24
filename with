@@ -1,0 +1,10 @@
+#!/bin/sh
+# Note: Please add critical enviroment variable back manually for now
+export PATH=/c/windows:/c/python35:$PATH
+
+# Note: pipe is not working in conEmu mode since the tty is different
+# Leave it here for next investigation
+# exec winpty -Xallow-non-tty 'c:\windows\with.bat' "$@"
+exec winpty with.bat "$@"
+
+
