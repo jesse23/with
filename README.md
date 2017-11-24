@@ -9,7 +9,7 @@ On Linux, the common practice for `fzf` is:
 vim $(fzf)
 ```
 
-On Windows platform, we can use pip to achieve same approach.
+On Windows platform, we can use pipe to achieve same approach.
 
 ## Preview
 
@@ -54,7 +54,7 @@ Same as windows prompt but 2 limitations:
 
 ## Test
 
-![Test](./doc/test.png?raw=true "Test")
+![Test](./doc/Test.png?raw=true "Test")
 
 ## Trouble Shoot
 
