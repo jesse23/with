@@ -49,8 +49,21 @@ On Windows platform, we can use pipe to achieve same approach.
 
 Same as windows prompt but 2 limitations:
 
-1. `vim` is not usable. `Gvim` is OK.
+1. `vim` only has 16 colors since it cannot be captured by `conEmu`. It may presents different with `Gvim` and common `vim` callo.
 2. `pipe` is not usable(because of `winpty`).
+
+###With Fd
+
+The default file finder in fzf windows is `dir /s /b`. by using [fd](https://github.com/sharkdp/fd), you can get a decent improvement. For using it, just need to:
+
+1. Get `fd` binary and put it to `c:\windows`.
+
+2. Modify `with.bat` to enable it:
+
+   ```shell
+   :: Do FZF Setting Here
+   set FZF_DEFAULT_COMMAND=fd -a -j 4
+   ```
 
 ## Test
 
@@ -60,7 +73,7 @@ Same as windows prompt but 2 limitations:
 
 ### "D:\xxxxxx\xxxx" Illegal file name in vim/Gvim
 
-I don't know what is the root cause for this for now, but it is no impact to any function.
+I don't know what is the root cause for this for now, but it is no impact to any functionality.
 
 ### zsh: command not found: with
 

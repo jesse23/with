@@ -2,8 +2,8 @@
 setlocal
 
 :: Do FZF Setting Here
-:: set FZF_DEFAULT_COMMAND=fd -a -j 4
-:: set FZF_DEFAULT_OPTS=--prompt="=>" --border --inline-info 
+:::: set FZF_DEFAULT_COMMAND=fd -a -j 4
+:::: set FZF_DEFAULT_OPTS=--prompt="=>" --border --inline-info 
 
 :: Process executable input
 set EXECUTABLE=%1
@@ -12,7 +12,8 @@ set EXECUTABLE=%1
 if not defined EXECUTABLE goto EXEFZF
 
 :::: Get extension and file name
-for /f "usebackq delims=" %%a in (`where %EXECUTABLE%`) do (set EXE_EXT=%%~xa) && (set EXE_NAME=%%~na)
+for /f "usebackq delims=" %%a in (`where %EXECUTABLE%`) do (set EXE_EXT=%%~xa) & (set EXE_NAME=%%~na) & goto :GET_EXT_DONE
+:GET_EXT_DONE
 
 :::: NOTE: for support *.cmd, we can use example below
 :::: set "formats=.cmd.bat."
@@ -38,17 +39,14 @@ if not defined SELECTION goto END
 :::: If not BAT go to WITH_START
 if not "%EXE_EXT%" == ".bat" goto WITH_START
 
-:::: Hard code for vim.bat case
-if "%EXE_NAME%" == "vim" goto WITH_START
-
 :WITH_CALL
 call %1 "%SELECTION%"
 goto :END
 
 :WITH_START
-start "winpty" %1 "%SELECTION%" -cur_console:n
+start "winpty" %1 "%SELECTION%"
 goto :END
 
 :END
 
-
+@echo on
