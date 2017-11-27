@@ -23,7 +23,7 @@ On Windows platform, we can use pipe to achieve same approach.
 
 ## Installation
 
-1. Download fzf binary from [here](https://github.com/junegunn/fzf/releases) and put it to `C:\windows`.
+1. Download fzf binary from [here](https://github.com/junegunn/fzf-bin/releases) and put it to `C:\windows`.
 2. Get  `bin/with.bat` and put it to `C:\windows` too.
 3. For msys/cygwin get `bin/win` and put it to any localtion in `$PATH`.
 
@@ -52,7 +52,7 @@ Same as windows prompt but 2 limitations:
 1. `vim` only has 16 colors since it cannot be captured by `conEmu`. It may presents different with `Gvim` and common `vim` callo.
 2. `pipe` is not usable(because of `winpty`).
 
-###With Fd
+### With Fd
 
 The default file finder in fzf windows is `dir /s /b`. by using [fd](https://github.com/sharkdp/fd), you can get a decent improvement. For using it, just need to:
 
